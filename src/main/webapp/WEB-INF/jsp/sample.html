@@ -1,0 +1,39 @@
+<html>
+<title>ajax example</title>
+
+<head>ajax examples
+<script type="text/javascript">
+function load() 
+{
+	var xmlhttpreq;
+	if (window.XMLHttpRequest)
+  	{
+	  
+	  xmlhttpreq=new XMLHttpRequest();
+	  alert("inside if  " + xmlhttpreq );
+  	}
+	else
+  	{
+		alert("inside else");
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+	xmlhttpreq.onreadystatechange=function()
+	  {
+		alert("inside function" + xmlhttpreq.status);
+	  if (xmlhttpreq.readyState==4 && xmlhttpreq.status==200)
+    		{
+			alert("inside functionm if ");
+    			document.getElementById("first").innerHTML=xmlhttpreq.responseText;
+    		}
+  	}
+xmlhttpreq.open("GET","cgi-bin/printenv.pl",true);
+xmlhttpreq.send();
+}
+</script>
+</head>
+<body>
+<div id="first"> <h2> First directory </h2> </div>
+<button type="button" onclick="load()" > Call </button>
+</body>
+</html>
+
