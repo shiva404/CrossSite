@@ -2,6 +2,7 @@ package com.intuit.test;
 
 import com.intuit.test.commons.TestBase;
 import com.intuit.test.types.xml.Something;
+import com.sun.jersey.api.client.ClientResponse;
 import org.testng.annotations.Test;
 
 import javax.ws.rs.core.MediaType;
@@ -29,6 +30,20 @@ public class ResourceTestXML extends TestBase {
         resource.path("/test/post").accept(MediaType.APPLICATION_XML_TYPE).entity(somethingXML).post();
     }
 
+    @Test
+    public void testMultiPath(){
+        resource.path("/test/sourceData/thumbnail").get(ClientResponse.class);
+    }
+
+    @Test
+    public void testMultiPath2(){
+        resource.path("/test/thumbnail").get(ClientResponse.class);
+    }
+
+    @Test
+    public void testMultiPath3(){
+        resource.path("/path/test/thumbnail").get(ClientResponse.class);
+    }
 
 
 }

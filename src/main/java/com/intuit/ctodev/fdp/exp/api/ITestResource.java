@@ -24,4 +24,10 @@ public interface ITestResource {
     @POST
     @Path("/post")
     public Response postReq(Something something);
+
+//    @GET
+//    @Consumes("*/*")
+//  //  @Path("{path : sourceData|^$|test}/{index}/thumbnail")
+//    @Path("/test/{index}")
+//    public Response testReq(@DefaultValue("1") @PathParam("index") String index);
 }

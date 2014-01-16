@@ -10,9 +10,28 @@
 						   http://www.springframework.org/schema/context/spring-context-3.0.xsd
 						   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <context:annotation-config />
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
 
-    <aop:aspectj-autoproxy proxy-target-class="true" />
- <bean id="webViewResource" class="com.intuit.ctodev.fdp.exp.web.WebViewResource" />
-    <bean id="testResource" class="com.intuit.ctodev.fdp.exp.api.TestResource" />
+ <!-- <bean id="webViewResource" class="com.intuit.ctodev.fdp.exp.web.WebViewResource" /> -->
+ <bean id="testResource" class="com.intuit.ctodev.fdp.exp.api.TestResource" >
+    <property name="util" ref="util" />
+ </bean>
+
+    <bean id="pathResource" class="com.intuit.ctodev.fdp.exp.api.PathParamDefault" />
+
+
+ <bean id="requestFilter" class="com.intuit.ctodev.fdp.exp.ContainerFilter.TestRequestFilter" scope="singleton"/>
+ <bean id="responseFilter" class="com.intuit.ctodev.fdp.exp.ContainerFilter.TestResponseFilter" scope="singleton" />
+ <bean id="util" class="com.intuit.ctodev.fdp.exp.layer.Util" />
+
+    <bean id="timingAdvice" class="com.intuit.ctodev.fdp.exp.logging.interceptor.CustomJamonPerformanceMonitorInterceptor" />
+
+    <bean id="advice" class="com.intuit.ctodev.fdp.exp.logger.TimerAdvice" />
+
+    <aop:aspectj-autoproxy />
+
+    <!--<aop:config>-->
+        <!--<aop:advisor pointcut="execution(* com.intuit.ctodev.fdp.exp.api.TestResource.*(..)) || execution(* com.intuit.ctodev.fdp.exp.layer.Util.*(..))" advice-ref="timingAdvice"/>-->
+    <!--</aop:config>-->
+
 </beans>

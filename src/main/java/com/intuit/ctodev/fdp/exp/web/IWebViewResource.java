@@ -34,4 +34,10 @@ public interface IWebViewResource {
     @Path("/hello")
     public Response hello();
 
+
+    @POST
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Path("/multipart")
+    public Response uploadFile();
+
 }

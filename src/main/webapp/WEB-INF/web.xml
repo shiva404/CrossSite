@@ -35,11 +35,11 @@
 
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
-            <param-value>com.sun.jersey.api.container.filter.LoggingFilter</param-value>
+            <param-value>com.intuit.ctodev.fdp.exp.ContainerFilter.TestRequestFilter</param-value>
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
-            <param-value>com.sun.jersey.api.container.filter.LoggingFilter</param-value>
+            <param-value>com.intuit.ctodev.fdp.exp.ContainerFilter.TestResponseFilter</param-value>
         </init-param>
 
         <init-param>

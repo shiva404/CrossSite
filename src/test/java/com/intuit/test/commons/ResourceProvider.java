@@ -29,10 +29,8 @@ public class ResourceProvider extends JerseyTest{
     .servletClass(SpringServlet.class)
     .contextListenerClass(ContextLoaderListener.class)
     .requestListenerClass(RequestContextListener.class)
-   // .initParam("com.sun.jersey.spi.container.ContainerRequestFilters", "com.intuit.platform.integration.sdx.ws.requestFilters.SDXRequestFilter")
-   // .initParam("com.sun.jersey.spi.container.ContainerResponseFilters", "com.intuit.platform.integration.sdx.ws.requestFilters.SDXResponseFilter")
-    .initParam("com.sun.jersey.spi.container.ContainerRequestFilters", "com.sun.jersey.api.container.filter.LoggingFilter")
-    .initParam("com.sun.jersey.spi.container.ContainerResponseFilters", "com.sun.jersey.api.container.filter.LoggingFilter")
+    .initParam("com.sun.jersey.spi.container.ContainerRequestFilters", "com.intuit.ctodev.fdp.exp.ContainerFilter.TestRequestFilter;com.sun.jersey.api.container.filter.LoggingFilter")
+    .initParam("com.sun.jersey.spi.container.ContainerResponseFilters", "com.intuit.ctodev.fdp.exp.ContainerFilter.TestResponseFilter;com.sun.jersey.api.container.filter.LoggingFilter")
     .initParam("com.sun.jersey.api.json.POJOMappingFeature","true")
     .build();
 	

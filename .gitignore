@@ -1,4 +1,18 @@
 
 .DS_Store
 
+logs/*
+target/*
 *.iml
+.idea/*
+.idea/workspace.xml
+
+.idea/.name
+
+.idea/artifacts/CrossSite1_war.xml
+
+.idea/artifacts/CrossSite1_war_exploded.xml
+
+logs/1.xml
+
+logs/output.xml

@@ -8,13 +8,6 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.UUID;
 
-/**
- * Created with IntelliJ IDEA.
- * User: sn1
- * Date: 4/24/13
- * Time: 2:07 PM
- * To change this template use File | Settings | File Templates.
- */
 public class WebViewResource implements IWebViewResource {
 
     @Override
@@ -150,6 +143,11 @@ public class WebViewResource implements IWebViewResource {
 
         return Response.ok().build();
 
+    }
+
+    @Override
+    public Response uploadFile() {
+        return null;
     }
 
     private void writeToFile(InputStream uploadedInputStream,
